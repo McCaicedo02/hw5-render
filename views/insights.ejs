@@ -1,0 +1,42 @@
+<%- include("partials/head") %>
+<%- include("partials/nav") %>
+
+<main class="shell page-grid reveal">
+  <section class="content-flow">
+    <p class="eyebrow">Live API Data</p>
+    <h2>This page uses current Monterey weather data that is requested in the backend before the view is rendered.</h2>
+    <p>The data comes from Open-Meteo through <code>index.mjs</code>. I wanted this part of the project to show that the site is not only styled differently from the original assignment, but is also technically more complete.</p>
+  </section>
+
+  <section class="content-flow">
+    <% if (weather.current) { %>
+      <h3>Current conditions</h3>
+      <p class="big-stat"><%= weather.current.temperature %>F</p>
+      <p><%= weatherLabel %> with winds near <%= weather.current.windSpeed %> mph.</p>
+    <% } else { %>
+      <h3>Current conditions</h3>
+      <p><%= weather.error %></p>
+    <% } %>
+  </section>
+
+  <section class="content-flow">
+    <h3>3-day outlook</h3>
+    <div class="forecast-grid">
+      <% weather.forecast.forEach((day) => { %>
+        <article class="forecast-card">
+          <strong><%= day.day %></strong>
+          <p>High: <%= day.high %>F</p>
+          <p>Low: <%= day.low %>F</p>
+        </article>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="content-flow statement-band">
+    <p class="eyebrow">Why it matters</p>
+    <h3>Adding live data makes the assignment more useful as a full Express exercise.</h3>
+    <p>Instead of only presenting fixed content, this version shows that the server can request information, prepare it, and then render it as part of the page.</p>
+  </section>
+</main>
+
+<%- include("partials/footer") %>

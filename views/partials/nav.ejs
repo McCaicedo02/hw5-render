@@ -1,0 +1,21 @@
+<header class="site-header shell">
+  <div class="header-topline">
+    <p class="eyebrow">CST336 HW5</p>
+    <span class="status-chip">Express + EJS + Live Data</span>
+  </div>
+  <div class="header-grid">
+    <div>
+      <h1>Camila Caicedo</h1>
+      <p class="header-copy">An Express portfolio developed for CST336 that combines personal background, coursework, and a small amount of live data to make the site feel more current.</p>
+    </div>
+    <div class="header-mini-card">
+      <p>Computer science student, co-founder with my brother, and still in the process of learning how to build better work.</p>
+    </div>
+  </div>
+</header>
+
+<nav class="shell site-nav" aria-label="Main navigation">
+  <% navigation.forEach((item) => { %>
+    <a href="<%= item.href %>" class="<%= currentPath === item.href ? 'active' : '' %>"><%= item.label %></a>
+  <% }) %>
+</nav>

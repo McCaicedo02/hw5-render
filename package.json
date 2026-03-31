@@ -1,0 +1,20 @@
+{
+  "name": "hw5",
+  "version": "1.0.0",
+  "description": "CST336 HW5 Express portfolio app",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs",
+    "dev": "node --watch index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@faker-js/faker": "^10.4.0",
+    "axios": "^1.14.0",
+    "ejs": "^5.0.1",
+    "express": "^5.2.1"
+  }
+}

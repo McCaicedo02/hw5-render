@@ -1,0 +1,97 @@
+<%- include("partials/head") %>
+<%- include("partials/nav") %>
+
+<main class="shell hero-layout reveal">
+  <section class="hero-copy">
+    <p class="eyebrow">Welcome</p>
+    <h2>A revised CST336 portfolio built around the work I am doing now.</h2>
+    <p>The goal of this version was to keep the project personal while also making it more structured. It still functions as a portfolio, but it now includes server-side rendering, reusable views, and live information from the backend.</p>
+    <p>I am a computer science student at CSUMB, and I have also started a company with my brother. That work is still developing, and it has made me more aware of how much there is to learn about both software and long-term project building.</p>
+    <% if (weather.current) { %>
+      <div class="weather-pill weather-pill--live">
+        <strong><%= weather.current.temperature %>F</strong>
+        <span><%= weatherLabel %> in Monterey</span>
+      </div>
+    <% } else { %>
+      <div class="weather-pill muted">
+        <span><%= weather.error %></span>
+      </div>
+    <% } %>
+    <div class="hero-actions">
+      <a href="/about" class="button-link">Read my story</a>
+      <a href="/projects" class="button-link ghost">See projects</a>
+    </div>
+  </section>
+
+  <section class="hero-visual">
+    <div class="glass-stage">
+      <div class="glass-stage__window">
+        <div class="glass-stage__topline">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="glass-stage__content">
+          <p class="tiny-label">Node package spotlight</p>
+          <h3><%= studio.mentor.name %></h3>
+          <p><%= studio.mentor.title %> focused on <%= studio.mentor.focus.toLowerCase() %>.</p>
+        </div>
+      </div>
+      <div class="glass-stage__badge glass-stage__badge--one">Express</div>
+      <div class="glass-stage__badge glass-stage__badge--two">EJS</div>
+      <div class="glass-stage__badge glass-stage__badge--three">API</div>
+    </div>
+    <div class="status-stack">
+      <article class="float-card">
+        <span>Mode</span>
+        <strong>Course portfolio</strong>
+      </article>
+      <article class="float-card">
+        <span>API link</span>
+        <strong>Open-Meteo</strong>
+      </article>
+      <article class="float-card">
+        <span>Current focus</span>
+        <strong><%= studio.mentor.focus %></strong>
+      </article>
+    </div>
+  </section>
+</main>
+
+<section class="shell metrics-grid reveal delay-1">
+  <% studio.feedback.forEach((item) => { %>
+    <article class="metric-card">
+      <p class="eyebrow"><%= item.title %></p>
+      <h3><%= item.stat %></h3>
+      <p><%= item.text %></p>
+    </article>
+  <% }) %>
+</section>
+
+<section class="shell split-band reveal delay-2">
+  <article class="story-panel">
+    <p class="eyebrow">Right now</p>
+    <h3>Coursework, practice, and gradual improvement</h3>
+    <p>I am interested in software development, systems, and building work that is organized and useful. Most of that progress comes from regular practice, revision, and learning through projects.</p>
+  </article>
+  <article class="story-panel accent-panel">
+    <p class="eyebrow">Outside the screen</p>
+    <h3>My husky helps keep life balanced</h3>
+    <p>Outside of school and project work, spending time with my husky helps me slow down and return to assignments with a clearer perspective.</p>
+  </article>
+</section>
+
+<section class="shell ticker-band reveal delay-2" aria-label="Highlights">
+  <span>EXPRESS ROUTES</span>
+  <span>EJS PARTIALS</span>
+  <span>GLOSSY PINK TECH</span>
+  <span>BACKEND API DATA</span>
+  <span>PACKAGE-DRIVEN CONTENT</span>
+  <span aria-hidden="true">EXPRESS ROUTES</span>
+  <span aria-hidden="true">EJS PARTIALS</span>
+  <span aria-hidden="true">GLOSSY PINK TECH</span>
+  <span aria-hidden="true">BACKEND API DATA</span>
+  <span aria-hidden="true">PACKAGE-DRIVEN CONTENT</span>
+</section>
+
+<%- include("partials/footer") %>

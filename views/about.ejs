@@ -1,0 +1,47 @@
+<%- include("partials/head") %>
+<%- include("partials/nav") %>
+
+<main class="shell about-layout reveal">
+  <section class="content-flow spotlight-copy">
+    <p class="eyebrow">About Me</p>
+    <h2>I am developing technical skills while also trying to think more seriously about long-term work.</h2>
+    <p>I am a computer science student at CSUMB with a strong interest in software development, systems, and learning through hands-on projects. For this assignment, I wanted the site to feel more personal while still staying grounded in the course requirements.</p>
+    <p>I also started a company with my brother. It is still in an early stage, and that experience has made it very clear to me that there is still a great deal I need to learn about planning, decision making, and building something sustainable over time.</p>
+    <p>I also have a husky, and that part of life matters more than it may seem. It helps me maintain some balance when school and project work become too intense.</p>
+  </section>
+
+  <section class="about-photo-strip">
+    <figure class="about-shot about-shot-one">
+      <img src="/img/photo-2.JPG" alt="Camila photo">
+    </figure>
+    <figure class="about-shot about-shot-two">
+      <img src="/img/photo-3.jpg" alt="Camila portrait">
+    </figure>
+  </section>
+
+  <section class="about-columns reveal delay-1">
+    <div class="content-flow">
+    <p class="eyebrow">Developer Themes</p>
+    <ul class="feature-list">
+      <li>Developing stronger full-stack habits through coursework</li>
+      <li>Learning what it means to build something with long-term goals</li>
+      <li>Balancing academic work with family and personal responsibilities</li>
+      <li>Using design to support clarity rather than decoration alone</li>
+      <li>Remaining open to revision and continued improvement</li>
+    </ul>
+    </div>
+
+    <div class="content-flow quiet-flow reveal delay-2">
+    <p class="eyebrow">What I’m Learning</p>
+    <h3>Current focus</h3>
+    <p>At the moment, I am working on writing cleaner backend code, organizing interfaces more carefully, and improving the way I explain work through design and structure.</p>
+    <div class="tag-row">
+      <% studio.officeHours.forEach((slot) => { %>
+        <span class="tag"><%= slot %></span>
+      <% }) %>
+    </div>
+    </div>
+  </section>
+</main>
+
+<%- include("partials/footer") %>

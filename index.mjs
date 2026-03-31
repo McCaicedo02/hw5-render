@@ -11,9 +11,9 @@ const PORT = process.env.PORT || 3000;
 
 const navigation = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/insights", label: "Insights" },
+  { href: "/windows", label: "Windows" },
+  { href: "/linux", label: "Linux" },
+  { href: "/macos", label: "macOS" },
   { href: "/contact", label: "Contact" }
 ];
 
@@ -27,48 +27,35 @@ app.use((req, res, next) => {
   next();
 });
 
-function getStudioProfile() {
+function getStudyProfile() {
   faker.seed(336);
 
   return {
-    mentor: {
+    assistant: {
       name: faker.person.fullName(),
-      title: "Creative Coding Mentor",
-      email: faker.internet.email().toLowerCase(),
+      title: "Systems Study Assistant",
       focus: faker.helpers.arrayElement([
-        "Accessible interfaces",
-        "Express routing",
-        "Responsive layouts",
-        "API storytelling"
+        "Process management",
+        "Memory organization",
+        "Security and permissions",
+        "File system structure"
       ])
     },
-    feedback: [
-      {
-        title: "Peer review energy",
-        stat: `${faker.number.int({ min: 88, max: 98 })}%`,
-        text: "Students said the project felt organized, easy to navigate, and more polished than the original static version."
-      },
-      {
-        title: "Route coverage",
-        stat: `${faker.number.int({ min: 5, max: 7 })} views`,
-        text: "The Express version expands the original portfolio into a more complete site with room for API and package-driven content."
-      },
-      {
-        title: "Mock studio note",
-        stat: faker.helpers.arrayElement(["Ready to deploy", "Feedback-friendly", "Backend powered"]),
-        text: faker.company.catchPhrase()
-      }
-    ],
-    officeHours: faker.helpers.arrayElements(
-      [
-        "Monday 3:30 PM",
-        "Tuesday 5:00 PM",
-        "Wednesday 1:15 PM",
-        "Thursday 6:45 PM",
-        "Friday 10:00 AM"
-      ],
+    labNote: faker.helpers.arrayElement([
+      "Compare how each operating system balances usability and system control.",
+      "Notice how security, compatibility, and interface design affect everyday use.",
+      "Think about which platform is best suited for beginners, developers, and enterprise use."
+    ]),
+    discussionPrompt: faker.helpers.arrayElement([
+      "Which operating system is most practical for general users?",
+      "Why is Linux so common in server environments?",
+      "How much should interface design matter when evaluating an operating system?"
+    ]),
+    studyTimes: faker.helpers.arrayElements(
+      ["Monday 3:30 PM", "Tuesday 5:00 PM", "Wednesday 1:15 PM", "Thursday 6:45 PM", "Friday 10:00 AM"],
       3
-    )
+    ),
+    contactEmail: faker.internet.email().toLowerCase()
   };
 }
 
@@ -132,44 +119,41 @@ function getWeatherLabel(code) {
 
 app.get("/", async (req, res) => {
   const weather = await getWeatherSnapshot();
-  const studio = getStudioProfile();
+  const study = getStudyProfile();
 
   res.render("index", {
     pageTitle: "Home",
     weather,
     weatherLabel: weather.current ? getWeatherLabel(weather.current.weatherCode) : "Unavailable",
-    studio
+    study
   });
 });
 
-app.get("/about", (req, res) => {
-  res.render("about", {
-    pageTitle: "About",
-    studio: getStudioProfile()
+app.get("/windows", (req, res) => {
+  res.render("windows", {
+    pageTitle: "Windows",
+    study: getStudyProfile()
   });
 });
 
-app.get("/projects", (req, res) => {
-  res.render("projects", {
-    pageTitle: "Projects",
-    studio: getStudioProfile()
+app.get("/linux", (req, res) => {
+  res.render("linux", {
+    pageTitle: "Linux",
+    study: getStudyProfile()
   });
 });
 
-app.get("/insights", async (req, res) => {
-  const weather = await getWeatherSnapshot();
-
-  res.render("insights", {
-    pageTitle: "Insights",
-    weather,
-    weatherLabel: weather.current ? getWeatherLabel(weather.current.weatherCode) : "Unavailable"
+app.get("/macos", (req, res) => {
+  res.render("macos", {
+    pageTitle: "macOS",
+    study: getStudyProfile()
   });
 });
 
 app.get("/contact", (req, res) => {
   res.render("contact", {
     pageTitle: "Contact",
-    studio: getStudioProfile()
+    study: getStudyProfile()
   });
 });
 

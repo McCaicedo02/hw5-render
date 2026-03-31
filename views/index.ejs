@@ -4,9 +4,9 @@
 <main class="shell hero-layout reveal">
   <section class="hero-copy">
     <p class="eyebrow">Welcome</p>
-    <h2>A revised CST336 portfolio built around the work I am doing now.</h2>
-    <p>The goal of this version was to keep the project personal while also making it more structured. It still functions as a portfolio, but it now includes server-side rendering, reusable views, and live information from the backend.</p>
-    <p>I am a computer science student at CSUMB, and I have also started a company with my brother. That work is still developing, and it has made me more aware of how much there is to learn about both software and long-term project building.</p>
+    <h2>This site revisits HW1 through Express while keeping the original focus on operating systems.</h2>
+    <p>An operating system is system software that manages hardware and software resources. It provides services for applications and helps users interact with the computer in a practical way.</p>
+    <p>This revised version keeps the academic topic from the original homework, but it now includes reusable EJS partials, server-side rendering, live backend data, and package-generated study content.</p>
     <% if (weather.current) { %>
       <div class="weather-pill weather-pill--live">
         <strong><%= weather.current.temperature %>F</strong>
@@ -31,10 +31,10 @@
           <span></span>
           <span></span>
         </div>
-        <div class="glass-stage__content">
+      <div class="glass-stage__content">
           <p class="tiny-label">Node package spotlight</p>
-          <h3><%= studio.mentor.name %></h3>
-          <p><%= studio.mentor.title %> focused on <%= studio.mentor.focus.toLowerCase() %>.</p>
+          <h3><%= study.assistant.name %></h3>
+          <p><%= study.assistant.title %> focused on <%= study.assistant.focus.toLowerCase() %>.</p>
         </div>
       </div>
       <div class="glass-stage__badge glass-stage__badge--one">Express</div>
@@ -44,7 +44,7 @@
     <div class="status-stack">
       <article class="float-card">
         <span>Mode</span>
-        <strong>Course portfolio</strong>
+        <strong>HW1 revised</strong>
       </article>
       <article class="float-card">
         <span>API link</span>
@@ -52,44 +52,52 @@
       </article>
       <article class="float-card">
         <span>Current focus</span>
-        <strong><%= studio.mentor.focus %></strong>
+        <strong><%= study.assistant.focus %></strong>
       </article>
     </div>
   </section>
 </main>
 
 <section class="shell metrics-grid reveal delay-1">
-  <% studio.feedback.forEach((item) => { %>
-    <article class="metric-card">
-      <p class="eyebrow"><%= item.title %></p>
-      <h3><%= item.stat %></h3>
-      <p><%= item.text %></p>
-    </article>
-  <% }) %>
+  <article class="metric-card">
+    <p class="eyebrow">Core functions</p>
+    <h3>5</h3>
+    <p>Operating systems support process management, memory management, file systems, device control, and security.</p>
+  </article>
+  <article class="metric-card">
+    <p class="eyebrow">Study note</p>
+    <h3>Faker</h3>
+    <p><%= study.labNote %></p>
+  </article>
+  <article class="metric-card">
+    <p class="eyebrow">Discussion prompt</p>
+    <h3>Prompt</h3>
+    <p><%= study.discussionPrompt %></p>
+  </article>
 </section>
 
 <section class="shell split-band reveal delay-2">
   <article class="story-panel">
-    <p class="eyebrow">Right now</p>
-    <h3>Coursework, practice, and gradual improvement</h3>
-    <p>I am interested in software development, systems, and building work that is organized and useful. Most of that progress comes from regular practice, revision, and learning through projects.</p>
+    <p class="eyebrow">Why operating systems matter</p>
+    <h3>Without an operating system, most users would not be able to use a computer effectively.</h3>
+    <p>The operating system allows applications to run, coordinates hardware resources, and helps different parts of the computer work together in a usable way.</p>
   </article>
   <article class="story-panel accent-panel">
-    <p class="eyebrow">Outside the screen</p>
-    <h3>My husky helps keep life balanced</h3>
-    <p>Outside of school and project work, spending time with my husky helps me slow down and return to assignments with a clearer perspective.</p>
+    <p class="eyebrow">Live backend detail</p>
+    <h3>Current Monterey weather</h3>
+    <p>This weather snapshot is included through the backend to satisfy the Web API requirement while keeping the site centered on the operating systems topic.</p>
   </article>
 </section>
 
 <section class="shell ticker-band reveal delay-2" aria-label="Highlights">
   <span>EXPRESS ROUTES</span>
   <span>EJS PARTIALS</span>
-  <span>GLOSSY PINK TECH</span>
+  <span>OPERATING SYSTEMS</span>
   <span>BACKEND API DATA</span>
   <span>PACKAGE-DRIVEN CONTENT</span>
   <span aria-hidden="true">EXPRESS ROUTES</span>
   <span aria-hidden="true">EJS PARTIALS</span>
-  <span aria-hidden="true">GLOSSY PINK TECH</span>
+  <span aria-hidden="true">OPERATING SYSTEMS</span>
   <span aria-hidden="true">BACKEND API DATA</span>
   <span aria-hidden="true">PACKAGE-DRIVEN CONTENT</span>
 </section>
